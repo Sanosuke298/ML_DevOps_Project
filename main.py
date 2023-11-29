@@ -3,8 +3,29 @@ import pandas as pd
 import numpy as np
 from sklearn.feature_extraction.text import TfidfVectorizer
 from sklearn.metrics.pairwise import cosine_similarity
+from fastapi.staticfiles import StaticFiles
+from fastapi.middleware.cors import CORSMiddleware
+
 
 app = FastAPI()
+app.mount("/", StaticFiles(directory=".", html=True), name="static")
+
+# Configure CORS
+origins = [
+    "http://localhost",
+    "http://localhost:8000",
+    "https://my-new-app-jlt5.onrender.com",  # Add your deployment URL here
+    # Add other domains if necessary
+]
+
+app.add_middleware(
+    CORSMiddleware,
+    allow_origins=origins,
+    allow_credentials=True,
+    allow_methods=["*"],
+    allow_headers=["*"],
+)
+
 
 # Load parquet data into a pandas dataframe
 games_data = pd.read_parquet('API_requests.parquet')
