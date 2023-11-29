@@ -144,7 +144,7 @@ Finally, the project is deployed on the Render platform via Docker Hub. This dep
 
 Each stage in the data pipeline plays a vital role in achieving the project's goals, from data preparation and exploration to user-centric functionality and machine learning-powered recommendations.
 
-Link to the API: [API Documentation](https://my-new-app-d85l.onrender.com/docs)
+Link to the API: [API Documentation](https://my-new-app-jlt5.onrender.com/docs)
 
 ## Video
 
