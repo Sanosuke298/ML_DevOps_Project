@@ -1,9 +1,9 @@
 # render.yaml
 
 services:
-  - name: ProyectoAPI
-    buildCommand: pip install -r requirements.txt
-    startCommand: uvicorn main:app --host 0.0.0.0 --port 10000
-    env: 
-      - key: KEY
-        value: VALUE
+- type: web
+  name: my-new-app
+  env: docker
+  plan: starter
+  httpPort: 80
+  dockerfilePath: ./Dockerfile

@@ -3,146 +3,51 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Game API Dashboard</title>
+    <title>Steam Analytics and Recommendation System</title>
     <style>
-        body { font-family: Arial, sans-serif; }
-        .container { width: 80%; margin: 0 auto; }
-        .form-group { margin-bottom: 15px; }
-        .form-group label { display: block; margin-bottom: 5px; }
-        .form-group input, .form-group select { width: 100%; padding: 8px; }
-        button { padding: 10px 15px; background-color: #007bff; color: white; border: none; border-radius: 4px; cursor: pointer; }
-        button:hover { background-color: rgb(250, 246, 10), 179, 0); }
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            text-align: center;
+            margin: 0;
+            padding: 0;
+            background-color: #e0f7fa; /* Light cyan color */
+            color: #0277bd; /* Deep blue color */
+        }
+        h1 {
+            color: #00838f; /* Cyan darken-3 */
+            margin-top: 40px;
+        }
+        p {
+            color: #004d40; /* Teal darken-4 */
+            font-size: 18px;
+            margin: 15px 0;
+        }
+        .container {
+            max-width: 700px;
+            margin: auto;
+            padding: 20px;
+            background-color: #ffffff;
+            box-shadow: 0 8px 16px 0 rgba(0,0,0,0.2);
+            border-radius: 10px;
+            margin-top: 30px;
+        }
+        .footer {
+            font-size: 14px;
+            color: #006064; /* Cyan darken-4 */
+            margin-top: 40px;
+            padding: 20px;
+        }
     </style>
 </head>
 <body>
     <div class="container">
-        <h1>Game API Dashboard</h1>
-
-        <!-- Play Time by Genre -->
-        <div class="form-group">
-            <label for="genre">Enter Genre:</label>
-            <input type="text" id="genre" name="genre">
-            <button onclick="playTimeByGenre()">Get Play Time by Genre</button>
-        </div>
-
-        <!-- User For Genre -->
-        <div class="form-group">
-            <label for="userGenre">Enter Genre for User Stats:</label>
-            <input type="text" id="userGenre" name="userGenre">
-            <button onclick="userForGenre()">Get User Stats by Genre</button>
-        </div>
-
-        <!-- Users Recommend -->
-        <div class="form-group">
-            <label for="recommendYear">Enter Year:</label>
-            <input type="number" id="recommendYear" name="recommendYear">
-            <button onclick="usersRecommend()">Get Top Recommended Games</button>
-        </div>
-
-        <!-- Users Worst Developer -->
-        <div class="form-group">
-            <label for="worstDevYear">Enter Year:</label>
-            <input type="number" id="worstDevYear" name="worstDevYear">
-            <button onclick="usersWorstDeveloper()">Get Worst Developers</button>
-        </div>
-
-        <!-- Sentiment Analysis -->
-        <div class="form-group">
-            <label for="developer">Enter Developer Name:</label>
-            <input type="text" id="developer" name="developer">
-            <button onclick="sentimentAnalysis()">Get Sentiment Analysis</button>
-        </div>
-
-        <!-- Game Recommendation -->
-        <div class="form-group">
-            <label for="itemId">Enter Item ID:</label>
-            <input type="number" id="itemId" name="itemId">
-            <button onclick="gameRecommendation()">Get Game Recommendations</button>
-        </div>
-
-        <!-- User Recommendation -->
-        <div class="form-group">
-            <label for="userId">Enter User ID:</label>
-            <input type="number" id="userId" name="userId">
-            <button onclick="userRecommendation()">Get User Recommendations</button>
-        </div>
-
-        <!-- API Response Display -->
-        <div id="apiResponse"></div>
+        <h1>Steam Analytics and Recommendation System</h1>
+        <p>Welcome to the Steam Analytics and Recommendation System, an innovative platform designed to enhance your gaming experience on Steam. This system utilizes advanced data analytics to provide personalized game recommendations and insightful analytics based on user preferences and playing habits.</p>
+        <p>Explore the various features and discover games that align with your interests. Enjoy a tailored gaming journey with our system!</p>
+        <p>Created by Juan Patricio Caceres</p>
     </div>
-
-    <script>
-        function handleApiResponse(response) {
-            if (!response.ok) {
-                throw Error(response.statusText);
-            }
-            return response.json();
-        }
-    
-        function displayError(error) {
-            document.getElementById('apiResponse').innerText = `Error: ${error}`;
-        }
-    
-        function displayResponse(data) {
-            document.getElementById('apiResponse').innerText = JSON.stringify(data, null, 2);
-        }
-    
-        function playTimeByGenre() {
-            const genre = document.getElementById('genre').value;
-            fetch(`https://my-new-app-jlt5.onrender.com/PlayTimeGenre?genre=${genre}`)
-                .then(handleApiResponse)
-                .then(displayResponse)
-                .catch(displayError);
-        }
-    
-        function userForGenre() {
-            const genre = document.getElementById('userGenre').value;
-            fetch(`https://my-new-app-jlt5.onrender.com/UserForGenre?genre=${genre}`)
-                .then(handleApiResponse)
-                .then(displayResponse)
-                .catch(displayError);
-        }
-    
-        function usersRecommend() {
-            const year = document.getElementById('recommendYear').value;
-            fetch(`https://my-new-app-jlt5.onrender.com/UsersRecommend?year=${year}`)
-                .then(handleApiResponse)
-                .then(displayResponse)
-                .catch(displayError);
-        }
-    
-        function usersWorstDeveloper() {
-            const year = document.getElementById('worstDevYear').value;
-            fetch(`https://my-new-app-jlt5.onrender.com/UsersWorstDeveloper?year=${year}`)
-                .then(handleApiResponse)
-                .then(displayResponse)
-                .catch(displayError);
-        }
-    
-        function sentimentAnalysis() {
-            const developer = document.getElementById('developer').value;
-            fetch(`https://my-new-app-jlt5.onrender.com/sentiment_analysis?developer=${developer}`)
-                .then(handleApiResponse)
-                .then(displayResponse)
-                .catch(displayError);
-        }
-    
-        function gameRecommendation() {
-            const itemId = document.getElementById('itemId').value;
-            fetch(`https://my-new-app-jlt5.onrender.com/game_recommendation?item_id=${itemId}`)
-                .then(handleApiResponse)
-                .then(displayResponse)
-                .catch(displayError);
-        }
-    
-        function userRecommendation() {
-            const userId = document.getElementById('userId').value;
-            fetch(`https://my-new-app-jlt5.onrender.com/user_recommendation?user_id=${userId}`)
-                .then(handleApiResponse)
-                .then(displayResponse)
-                .catch(displayError);
-        }
-    </script>
-    
+    <div class="footer">
+        <p>&copy; 2023 Juan Patricio Caceres. All rights reserved.</p>
+    </div>
 </body>
 </html>
