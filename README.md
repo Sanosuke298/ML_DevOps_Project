@@ -148,9 +148,9 @@ Link to the API: [API Documentation](https://my-new-app-jlt5.onrender.com/docs)
 
 ## Video
 
-A video explaining and demonstrating the API is available. 
-[![Video Preview](https://img.youtube.com/vi/ANScEWm5W3s/0.jpg)](https://www.youtube.com/watch?v=ANScEWm5W3s)
+A video explaining and demonstrating the API is available here: 
 
+[![Video Preview](https://img.youtube.com/vi/v-5SCtD6sTc/0.jpg)](https://www.youtube.com/watch?v=v-5SCtD6sTc)
 
 ## Conclusions
 
