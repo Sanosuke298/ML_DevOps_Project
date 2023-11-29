@@ -150,7 +150,7 @@ Link to the API: [API Documentation](https://my-new-app-jlt5.onrender.com/docs)
 
 A video explaining and demonstrating the API is available here: 
 
-[![Video Preview](https://img.youtube.com/vi/v-5SCtD6sTc/0.jpg)](https://www.youtube.com/watch?v=v-5SCtD6sTc)
+[![Video Preview](https://img.youtube.com/vi/mPHe-7lO_T0/0.jpg)](https://www.youtube.com/watch?v=mPHe-7lO_T0)
 
 ## Conclusions
 
